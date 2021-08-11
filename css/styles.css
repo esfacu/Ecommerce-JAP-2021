@@ -320,3 +320,7 @@ form {
   align-items: center; 
   justify-content: center ;
 }
+
+body{
+  background-color: #B0BEC5;
+}
