@@ -19,8 +19,10 @@
   font-weight: bold;
 }
 
+/* Se modifica height a % para que imagen cabezera quede responsive */
 @media (min-width: 768px) {
   .jumbotron {
+    height: 100%;
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
