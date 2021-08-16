@@ -1,6 +1,3 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
@@ -40,7 +37,7 @@ function sortProduct(criteria, array){
 
 function showProductList(){
 
-
+// se usa estructura similar a category
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductArray.length; i++){
         let category = currentProductArray[i];
@@ -80,14 +77,13 @@ function sortAndShowProduct(sortCriteria, productArray){
     }
 
     currentProductArray = sortProduct(currentSortCriteria, currentProductArray);
-
-    //Muestro las categorías ordenadas
+    //Muestro los products ordenados
     showProductList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+/*Función que se ejecuta una vez que se haya lanzado el evento de
+que el documento se encuentra cargado */
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -118,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+        //Obtengo el mínimo y máximo  para filtrar por cantidad
+
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 

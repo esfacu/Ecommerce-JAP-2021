@@ -14,6 +14,9 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--Script google-->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="435962379733-v7hvt0mnslu32nmhd6cura7v6j50miqv.apps.googleusercontent.com">
   <style>
     html, body{
       height: 100%;
@@ -60,9 +63,9 @@
                           <div class="twitter text-center mr-3">
                               <div class="fa fa-twitter"></div>
                           </div>
-                          <div class="linkedin text-center mr-3">
-                              <div class="fa fa-linkedin"></div>
-                          </div>
+                          <div class="google text-center mr-3">
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           </div>
                       </div>
                       <div class="row px-3 mb-4">
                           <div class="line"></div> <small class="or text-center">Or</small>
