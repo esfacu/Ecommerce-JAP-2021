@@ -6,6 +6,31 @@
 }); 
 */
 
+
+// funcion requisitos usuario y contraseña
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+});
+
+function validarFormulario(evento) {
+  evento.preventDefault();
+  var usuario = document.getElementById('usuario').value;
+  if(usuario.length < 6 || usuario.length > 8) {
+    alert('Usuario debe tener entre 6 y 8 caracteres');
+    return;
+  }
+  var clave = document.getElementById('clave').value;
+  if (clave.length < 4) {
+    alert('La clave no es válida, debe tener al menos 4 caracteres');
+    return;
+  } else{
+  location.href="portada.html";
+  }
+}
+
+//funcion loguear google 
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -18,6 +43,8 @@ function onSignIn(googleUser) {
   }
 
 
+  //funcion desloguear google
+  
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {

@@ -41,7 +41,7 @@
 </head>
 
 <body class="text-center">
-    <form action="portada.html">
+    <form id="formulario">
     <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
       <div class="card card0 border-0">
           <div class="row d-flex">
@@ -71,15 +71,15 @@
                           <div class="line"></div>
                       </div>
                       <div class="row px-3"> <label class="mb-1">
-                              <h6 class="mb-0 text-sm">Correo electronico</h6>
-                          </label> <input class="mb-4" type="email" name="email" required="" placeholder="Ingresa una correcta dirección de correo"> </div>
+                              <h6 class="mb-0 text-sm">Usuario</h6>
+                          </label> <input class="mb-4" type="text" name="usuario" id="usuario" placeholder="Ingresar Usuario"> </div>
                       <div class="row px-3"> <label class="mb-1">
                               <h6 class="mb-0 text-sm">Contraseña</h6>
-                          </label> <input type="password" name="password"  required="" placeholder="Ingresar contraseña"> </div>
+                          </label> <input type="password" name="clave" id="clave" placeholder="Ingresar contraseña"> </div>
                       <div class="row px-3 mb-4">
                           <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Recordarme</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Olvidaste tu contraseña?</a>
                       </div>
-                      <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Ingresar</button> </div>
+                      <div class="row mb-3 px-3"> <button type="submit" value="Ingresar" onclick='validarFormulario()' class="btn btn-blue text-center">Ingresar</button> </div>
                       <div class="row mb-4 px-3"> <small class="font-weight-bold">No tenes usuario? <a class="text-danger ">Registrarse</a></small> </div>
                       <a href="#" onclick="signOut();">Desloguear</a>
                     </div>
