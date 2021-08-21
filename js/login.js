@@ -51,5 +51,4 @@ function onSignIn(googleUser) {
       console.log('User signed out.');
     });
   window.location.href = 'index.html';
-  window.location.reload(true);
 }
