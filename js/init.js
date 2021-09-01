@@ -43,5 +43,17 @@ var getJSONData = function(url){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-});
+
+
+function logear(){
+  if(localStorage.getItem("usuario")!=null){
+    var nomUSuario = `<a href="#">` + localStorage.getItem("usuario") + `</a>`;
+    var elem = document.getElementById("main");
+    elem.innerHTML += nomUSuario + `<br>`;
+  }
+  else{
+    window.location.href = "index.html"
+  }
+}
+
+logear();

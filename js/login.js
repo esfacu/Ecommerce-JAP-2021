@@ -25,6 +25,7 @@ function validarFormulario(evento) {
     alert('La clave no es válida, debe tener al menos 4 caracteres');
     return;
   } else{
+  localStorage.setItem("usuario", usuario);
   location.href="portada.html";
   }
 }
@@ -39,6 +40,7 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
+    localStorage.setItem("usuario", usuario);
     window.location.href = 'portada.html';
   }
 
