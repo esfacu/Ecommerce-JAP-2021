@@ -42,10 +42,16 @@
                       <label class="btn btn-light" id="sortDesc" >
                           <input type="radio" name="options" autocomplete="off">Z-A
                       </label>
-                      <label class="btn btn-light" id="sortByCount" >
-                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+                      <label class="btn btn-light" id="sortByPrice" >
+                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Precio
                       </label>
+                      <label class="btn btn-light" id="sortByRelevancia" >
+                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
+                    </label>
+                
                   </div>
+                  <input type="text" id="formulario" class="form-control my-2" placeholder="INGRESE NOMBRE O DESCRIPCION"/>
+                  <button class="btn btn-info mb-2" id="boton">Buscar</button>
               </div>
           </div>
           <div class="row justify-content-end">
@@ -53,7 +59,7 @@
               <div class="col-md-6 col-sm-12 mb-1 container">
                 <div class="row container p-0 m-0">
                   <div class="col">
-                    <p class="font-weight-normal text-right my-2">Cant.</p>
+                    <p class="font-weight-normal text-right my-2">Precio</p>
                   </div>
                   <div class="col">
                     <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
@@ -72,7 +78,6 @@
           </div>
           <div class="row">
               <div class="list-group" id="cat-product-container">
-              </div>
           </div>
       </div>
     </main>

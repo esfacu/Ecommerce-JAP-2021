@@ -1,10 +1,13 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
+const ORDER_BY_PROD_RELEVANCIA = "soldCount.";
 var currentProductArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+
+//ordena alfabeticamente 
 
 function sortProduct(criteria, array){
     let result = [];
@@ -21,15 +24,30 @@ function sortProduct(criteria, array){
             if ( a.name < b.name ){ return 1; }
             return 0;
         });
+
+        //SE MODIFICA A.COUNT POR A.COST PARA FILTRAR POR COSTO DECENDENTE
     }else if (criteria === ORDER_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
+
+        //SE AGREGA ELSEIF PARA ORDENAR DECENDENTE POR RELEVANCIA TOMANDO EN CUENTA VENTAS
+        
+    }else if (criteria === ORDER_BY_PROD_RELEVANCIA){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.soldCount);
+            let bCount = parseInt(b.soldCount);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+        
     }
 
     return result;
@@ -40,25 +58,25 @@ function showProductList(){
 // se usa estructura similar a category
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductArray.length; i++){
-        let category = currentProductArray[i];
+        let product = currentProductArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
        
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">USD ` + category.cost + `</small>
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                            <small class="text-muted">USD ` + product.cost + `</small>
                         </div>
-                        <p class="mb-1">` + category.description + `</p>
-                        <br><br><p class="mb-1">UNIDADES VENDIDAS: ` + category.soldCount + `</p>
+                        <p class="mb-1">` + product.description + `</p>
+                        <br><br><p class="mb-1">UNIDADES VENDIDAS: ` + product.soldCount + `</p>
                     </div>
                 </div>
             </a>
@@ -99,8 +117,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProduct(ORDER_DESC_BY_NAME);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
+    document.getElementById("sortByPrice").addEventListener("click", function(){
         sortAndShowProduct(ORDER_BY_PROD_COUNT);
+    });
+
+    document.getElementById("sortByRelevancia").addEventListener("click", function(){
+        sortAndShowProduct(ORDER_BY_PROD_RELEVANCIA);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
@@ -114,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo  para filtrar por cantidad
+        //Obtengo el mínimo y máximo  para filtrar por cantidad definidas imputut
 
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
@@ -136,3 +158,53 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductList();
     });
 });
+
+
+//funcion buscador
+
+
+
+//constantes buscador products
+const formulario = document.querySelector('#formulario');
+const boton = document.querySelector('#boton');
+const resultado = document.querySelector('#cat-product-container');
+const productos = [];
+
+const filtrar = ()=>{
+   // console.log(formulario.value);
+   resultado.innerHTML = '';
+
+   const texto = formulario.value.toLowerCase();
+    for(let producto of productos){
+        let nombre = producto.name.toLowerCase();
+        if(nombre.indexOf(texto) !== -1){
+            resultado.innerHTML += `<a href="product-info.html" class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ product.name +`</h4>
+                        <small class="text-muted">USD ` + product.cost + `</small>
+                    </div>
+                    <p class="mb-1">` + product.description + `</p>
+                    <br><br><p class="mb-1">UNIDADES VENDIDAS: ` + product.soldCount + `</p>
+                </div>
+            </div>
+        </a>
+        `
+            // `<li>${producto.name} - Valor: ${producto.cost}</li>`
+        }
+    }
+   if(resultado.innerHTML === ''){
+        resultado.innerHTML += `
+        <li>Producto no encontrado...</li>`
+    } 
+} 
+
+
+boton.addEventListener('click', filtrar);
+formulario.addEventListener('keyup', filtrar);
+
+filtrar()
