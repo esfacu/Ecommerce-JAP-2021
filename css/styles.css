@@ -6,17 +6,26 @@
     font-weight: bold;
 }
 
-.jumbotron {
-  height: 50vh;
+/**.jumbotron {
+  height: 100vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
-  background-size: cover;
+  background-color: #53C0FB;*/
+ /* background: url('../img/cover_back.png');*/
+  /*background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;
+} */
+
+.jumbotron {
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+  background-size: cover;
+  margin-bottom: 0;
 }
 
 /* Se modifica height a % para que imagen cabezera quede responsive */
