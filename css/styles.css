@@ -19,6 +19,20 @@
   font-weight: bold;
 } */
 
+.jumbotron{
+  padding: inherit;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+}
+
+.img-fluid{
+  max-width: 100%;
+  height: auto;
+}
+
 .jumbotron {
   background-position: center;
   background-repeat: no-repeat;
