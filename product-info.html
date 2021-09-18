@@ -15,7 +15,7 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body role="main">
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
     <a class="nav-link disabled" id="main" href="my-profile.html">Bienvenido  </a>      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -65,14 +65,44 @@
       <a class="py-2 d-none d-md-inline-block" id='main' href="my-profile.html">Bienvenido: </a>
     </div>
   </nav> -->
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  
+  <div class="container mt-5">
+  <div class="text-center p-4">
+    <h2>Información Producto</h2>
+    <p class="lead">Encontrarás aquí toda la información del producto seleccionada.</p>
+    <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+      seleccionada previamente, siempre se visualizará la presente: <strong>Chevrolet Onix Joy</strong>.</p>
   </div>
+  <h3 id="productName"></h3>
+  <hr class="my-3">
+  <dl>
+    <dt>Descripción</dt>
+    <dd>
+      <p id="productDescription"></p>
+    </dd>
+
+    <dt>Costo: </dt>
+    <dd>
+      <p id="productCost"></p>
+    </dd>
+
+    <dt>Unidades Vendidas:</dt>
+    <dd>
+      <p id="productSold"></p>
+    </dd>
+
+    <dt>Categoria: </dt>
+    <dd>
+      <p id="category"></p>
+    </dd>
+  
+    <dt>Imágenes ilustrativas</dt>
+    <dd>
+      <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+      </div>
+    </dd>
+  </dl>
+</div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -90,11 +120,12 @@
       <div></div>
     </div>
   </div>
+ 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="js/login.js"></script>
+  <!--<script src="js/login.js"></script>-->
 </body>
 
 </html>
