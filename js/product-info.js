@@ -59,11 +59,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+            
         }
     });
 });
-
-let relatedContainer = document.getElementById('related-products');
 
 //Grupo de variables usadas en la sección de hacer un nuevo comentario
 let commentSection = document.getElementById('comment-section');
@@ -146,7 +145,7 @@ function showComments(array) {
   
   //Función para que la calificación seleccionada se muestre en pantalla
   //al momento de hacer un nuevo comentario.
-  
+
   function rateComment(){
     
     starOne.addEventListener('click', function () {
@@ -246,3 +245,74 @@ function showComments(array) {
       })
     });
   });
+
+
+
+
+  let relacionados = [];
+
+
+  /*function showImagesGalleryRelated(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let imgSrc = array[i];
+
+        htmlContentToAppend += `
+        <img class="img-fluid img-thumbnail" src="` + relacionados[1].imgSrc + `" alt="">
+        </a>    
+        `
+
+        document.getElementById("relatedImg1").innerHTML = htmlContentToAppend;
+    }
+}*/
+
+  document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            relacionados = resultObj.data;
+          
+            let htmlToAppend1 = "";
+            let htmlToAppend2 = "";
+            let related1HTML  = document.getElementById("productRelated1");
+            let related2HTML  = document.getElementById("productRelated2");
+            let related1imgHTML = document.getElementById("relatedImg1");
+            let related2imgHTML = document.getElementById("relatedImg2");
+            let relatedCost1HTML  = document.getElementById("relatedCost1");
+            let relatedCost2HTML  = document.getElementById("relatedCost2");
+
+
+            related1HTML.innerHTML = relacionados[1].name;
+            related2HTML.innerHTML = relacionados[3].name;
+            relatedCost1HTML.innerHTML = relacionados[1].currency +` `+ relacionados[1].cost;
+            relatedCost2HTML.innerHTML = relacionados[3].currency +` `+ relacionados[3].cost;
+            
+            htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+            <a href="/product-info.html">
+            <img class="img-fluid img-thumbnail" src="` + relacionados[1].imgSrc + `" alt="">
+            </a>
+            </div>
+            </div>`
+            related1imgHTML.innerHTML = htmlToAppend1;
+
+            htmlToAppend2 += `<div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+            <a href="/product-info.html">
+            <img class="img-fluid img-thumbnail" src="` + relacionados[3].imgSrc + `" alt="">
+            </a>
+            </div>
+            </div>`
+            related2imgHTML.innerHTML = htmlToAppend2;
+
+
+            
+
+           // showImagesGalleryRelated(relacionados[1].imgSrc);
+        }
+    });
+});
+
+
