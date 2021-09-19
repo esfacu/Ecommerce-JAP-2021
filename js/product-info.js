@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             
             htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-            <a href="/product-info.html">
+            <a href="product-info.html">
             <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[0]].imgSrc + `" alt="">
             </a>
             </div>
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             htmlToAppend2 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-            <a href="/product-info.html">
+            <a href="product-info.html">
             <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[1]].imgSrc + `" alt="">
             </a>
             </div>
