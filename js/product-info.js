@@ -247,26 +247,13 @@ function showComments(array) {
   });
 
 
-
-
+//funcion que carga elementos relacionados
+/* usa variable product definida anteriormente que extrae
+ json de product-info, para sacar posicion de articulo de 
+ la nueva variable llamada relacionados donde se almacenan 
+ todos los productos del json de products
+*/
   let relacionados = [];
-
-
-  /*function showImagesGalleryRelated(array){
-
-    let htmlContentToAppend = "";
-
-    for(let i = 0; i < array.length; i++){
-        let imgSrc = array[i];
-
-        htmlContentToAppend += `
-        <img class="img-fluid img-thumbnail" src="` + relacionados[1].imgSrc + `" alt="">
-        </a>    
-        `
-
-        document.getElementById("relatedImg1").innerHTML = htmlContentToAppend;
-    }
-}*/
 
   document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -284,15 +271,15 @@ function showComments(array) {
             let relatedCost2HTML  = document.getElementById("relatedCost2");
 
 
-            related1HTML.innerHTML = relacionados[1].name;
-            related2HTML.innerHTML = relacionados[3].name;
-            relatedCost1HTML.innerHTML = relacionados[1].currency +` `+ relacionados[1].cost;
-            relatedCost2HTML.innerHTML = relacionados[3].currency +` `+ relacionados[3].cost;
+            related1HTML.innerHTML = relacionados[product.relatedProducts[0]].name;
+            related2HTML.innerHTML = relacionados[product.relatedProducts[1]].name;
+            relatedCost1HTML.innerHTML = relacionados[product.relatedProducts[0]].currency +` `+ relacionados[product.relatedProducts[0]].cost;
+            relatedCost2HTML.innerHTML = relacionados[product.relatedProducts[1]].currency +` `+ relacionados[product.relatedProducts[1]].cost;
             
             htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="/product-info.html">
-            <img class="img-fluid img-thumbnail" src="` + relacionados[1].imgSrc + `" alt="">
+            <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[0]].imgSrc + `" alt="">
             </a>
             </div>
             </div>`
@@ -301,7 +288,7 @@ function showComments(array) {
             htmlToAppend2 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="/product-info.html">
-            <img class="img-fluid img-thumbnail" src="` + relacionados[3].imgSrc + `" alt="">
+            <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[1]].imgSrc + `" alt="">
             </a>
             </div>
             </div>`
