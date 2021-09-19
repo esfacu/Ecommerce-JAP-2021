@@ -13,13 +13,13 @@ function showImagesGallery(array){
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="#" data-toggle="modal" data-target="#exampleModal">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                <img class="img-fluid img-thumbnail" src="${imageSrc}" alt="">
             </a>    
             </div>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
-                <img src="` + imageSrc + ` "alt="" class="img-fluid rounded">
+                <img src="${imageSrc}"alt="" class="img-fluid rounded">
             </div>
         </div>
         `
@@ -248,7 +248,7 @@ function showComments(array) {
 */
   let relacionados = [];
 
-  document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
@@ -294,5 +294,3 @@ function showComments(array) {
         }
     });
 });
-
-
