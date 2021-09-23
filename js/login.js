@@ -52,5 +52,6 @@ function onSignIn(googleUser) {
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+  storage.clear();
   window.location.href = 'index.html';
 }
