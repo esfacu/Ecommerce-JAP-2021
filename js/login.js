@@ -40,7 +40,7 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
-    localStorage.setItem('Name: ', usuario);
+    localStorage.setItem(console.log('Name: ' + profile.getName()), usuario);
     window.location.href = 'portada.html';
   }
 
