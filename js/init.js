@@ -52,11 +52,13 @@ function logear(){
     elem.innerHTML += nomUSuario + `<br>`;
   }
   else{
+    localStorage.setItem("user","");
     window.location.href = "index.html"
   }
 }
 
 logear();
+
 
 
 //funcion desloguear google
@@ -66,6 +68,6 @@ function signOut() {
   auth2.signOut().then(function () {
     console.log('User signed out.');
   });
-localStorage.setItem("user","");
+localStorage.setItem("usuario","");
 window.location.href = 'index.html';
 }
