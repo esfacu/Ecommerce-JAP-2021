@@ -47,9 +47,9 @@ var getJSONData = function(url){
 
 function logear(){
   if(localStorage.getItem("usuario")!=null){
-    var nomUSuario = `<a href="#">` + localStorage.getItem("usuario") + `</a>`;
+    var nomUSuario = localStorage.getItem("usuario");
     var elem = document.getElementById("main");
-    elem.innerHTML += nomUSuario + `<br>`;
+    elem.innerHTML += nomUSuario;
   }
   else{
     localStorage.setItem("user","");
