@@ -2,31 +2,34 @@
 
 var product = {};
 
+
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
-
+//for que recorre el array con las imagenes
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-            <a href="#" data-toggle="modal" data-target="#exampleModal">
-                <img class="img-fluid img-thumbnail" src="${imageSrc}" alt="">
-            </a>    
-            </div>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <img src="${imageSrc}"alt="" class="img-fluid rounded">
-            </div>
-        </div>
+      // si el array esta en 0 lo deja como item activo en carrusel        
+    if (i==0){ htmlContentToAppend += 
+       `<div class="carousel-item active">
+       <img class="d-block w-100"  src="`+ imageSrc +`" alt="`+ i +` slide">
+     </div>
         `
+    }else{
+      //si es otro no queda activo
+     htmlContentToAppend += 
+       `<div class="carousel-item">
+       <img class="d-block w-100"  src="`+ imageSrc +`" alt="`+ i +` slide">
+     </div>
+        `
+}
+      
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
