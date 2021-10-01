@@ -272,6 +272,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             relatedCost1HTML.innerHTML = relacionados[product.relatedProducts[0]].currency +` `+ relacionados[product.relatedProducts[0]].cost;
             relatedCost2HTML.innerHTML = relacionados[product.relatedProducts[1]].currency +` `+ relacionados[product.relatedProducts[1]].cost;
             
+
+            //traigo la posicion de la img de dos formas, no logre generar esto con un for queda para proxima entrega
             htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="product-info.html">
@@ -284,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             htmlToAppend2 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="product-info.html">
-            <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[1]].imgSrc + `" alt="">
+            <img class="img-fluid img-thumbnail" src="` + relacionados[3].imgSrc + `" alt="">
             </a>
             </div>
             </div>`
@@ -292,9 +294,31 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
             
-
+            //showRelatedProducts(relacionados[i]);
            // showImagesGalleryRelated(relacionados[1].imgSrc);
         }
     });
 });
 
+
+/*function showRelatedProducts(array) {
+
+  let htmlContentToAppend = "";
+
+  for (let i = 0; i < array.length; i++) {
+      let imageSrc = array[i].imgSrc;
+
+      htmlContentToAppend += `
+      <div class="col-lg-3 col-md-4 col-6">
+          <div class="d-block mb-4 h-100">
+              <a href="#">
+                  <img class="img-fluid img-thumbnail" src="${imageSrc}" alt="">
+              </a>
+          </div>
+      </div>
+      `;
+
+      related1imgHTML.innerHTML = htmlToAppend1;
+}
+}
+*/
