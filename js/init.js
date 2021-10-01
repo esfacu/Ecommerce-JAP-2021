@@ -68,6 +68,5 @@ function signOut() {
   auth2.signOut().then(function () {
     console.log('User signed out.');
   });
-localStorage.setItem("usuario","");
-window.location.href = 'index.html';
+localStorage.removeItem("usuario");
 }
