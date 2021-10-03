@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         {
             product = resultObj.data;
 
+            
+
             let productNameHTML  = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productCountHTML = document.getElementById("productCost");
@@ -57,11 +59,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             productCategoryHTML.innerHTML = product.category;
 
            
-           //productRelatedHTML.innerHTML = product.relatedProducts;
+           let positionRelated = product.relatedProducts;
             
 
             //Muestro las imagenes en forma de galería
+           //showInfo(product);
             showImagesGallery(product.images);
+            fetchRelatedProducts(product.relatedProducts).then(showRelatedProducts);
             
         }
     });
@@ -249,7 +253,7 @@ function showComments(array) {
  la nueva variable llamada relacionados donde se almacenan 
  todos los productos del json de products
 */
-  let relacionados = [];
+ /*let relacionados = [];
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -259,12 +263,13 @@ document.addEventListener("DOMContentLoaded", function(e){
           
             let htmlToAppend1 = "";
             let htmlToAppend2 = "";
-            let related1HTML  = document.getElementById("productRelated1");
-            let related2HTML  = document.getElementById("productRelated2");
+            let related1HTML  = document.getElementById("productRelated0");
+            let related2HTML  = document.getElementById("productRelated1");
             let related1imgHTML = document.getElementById("relatedImg1");
             let related2imgHTML = document.getElementById("relatedImg2");
-            let relatedCost1HTML  = document.getElementById("relatedCost1");
-            let relatedCost2HTML  = document.getElementById("relatedCost2");
+           
+            let relatedCost1HTML  = document.getElementById("relatedCost0");
+            let relatedCost2HTML  = document.getElementById("relatedCost1");
 
 
             related1HTML.innerHTML = relacionados[product.relatedProducts[0]].name;
@@ -274,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             
 
             //traigo la posicion de la img de dos formas, no logre generar esto con un for queda para proxima entrega
-            htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
+           /* htmlToAppend1 += `<div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
             <a href="product-info.html">
             <img class="img-fluid img-thumbnail" src="` + relacionados[product.relatedProducts[0]].imgSrc + `" alt="">
@@ -292,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             </div>`
             related2imgHTML.innerHTML = htmlToAppend2;
 
-
             
             //showRelatedProducts(relacionados[i]);
            // showImagesGalleryRelated(relacionados[1].imgSrc);
@@ -301,24 +305,34 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 
-/*function showRelatedProducts(array) {
+*/
+
+//for recorre array trayendo datos de product related, se ejecuta funcion en addeventlistener
+// se usa await ya que se trata de tipo promesa, aguarda su respuesta
+
+function showRelatedProducts(array) {
 
   let htmlContentToAppend = "";
-
   for (let i = 0; i < array.length; i++) {
       let imageSrc = array[i].imgSrc;
+      let name = array[i].name;
+      let cost = array[i].cost;
 
       htmlContentToAppend += `
       <div class="col-lg-3 col-md-4 col-6">
           <div class="d-block mb-4 h-100">
               <a href="#">
                   <img class="img-fluid img-thumbnail" src="${imageSrc}" alt="">
-              </a>
-          </div>
       </div>
-      `;
+      </div> <a class="nav-link disabled"><strong>${name}</strong></a>
+      <a class="nav-link disabled">Costo: ${cost}</a>
 
-      related1imgHTML.innerHTML = htmlToAppend1;
-}
-}
-*/
+      `;
+      relat.innerHTML = htmlContentToAppend;
+  }
+};
+
+async function fetchRelatedProducts(relatedProducts) {
+  const {data} = await getJSONData(PRODUCTS_URL);
+  return relatedProducts.map((id) => data[id]);
+};
