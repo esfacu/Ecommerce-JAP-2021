@@ -334,5 +334,5 @@ function showRelatedProducts(array) {
 
 async function fetchRelatedProducts(relatedProducts) {
   const {data} = await getJSONData(PRODUCTS_URL);
-  return relatedProducts.map((id) => data[id]);
+  return relatedProducts.map((p) => data[p]);
 };

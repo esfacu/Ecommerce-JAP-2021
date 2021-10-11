@@ -333,3 +333,7 @@ body{
 background-color: #B0BEC5;
 }
 
+.form-control{
+  width: 20%;
+  background-color: #e7ebec ;
+}
