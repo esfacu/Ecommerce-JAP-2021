@@ -67,6 +67,8 @@
     </div>
     </div>
   </nav>
+
+ 
   <!--<nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
      <a class="py-2 d-none d-md-inline-block" href="login.html">Login</a>
@@ -81,11 +83,44 @@
   </nav> -->
   <h1 Class="clist-group-item list-group-item-action list-group-item-dark" style="background-color: #e7ebec; padding: 7px;">TU CARRITO:</h1>
   <table id="input" class="table table"></table>
-  <h3 id="subt" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 25px; background-color: #e7ebec; padding: 7px"></h3>
-  <h3 id="envio" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 25px; background-color: #e7ebec; padding: 7px"></h3>
-  <h3 id="total" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 35px; background-color: #5fffca; padding: 7px"></h3>
-  <div id="carrito"></div>
+  <input type="button" id="cambiarPeso" onclick="calcular_subtotal();" class="btn btn-light" value="Convertir a Pesos">
+  <input type="button" id="cambiarPeso" onclick="" class="btn btn-dark" value="Convertir a Dolares">
+</br>
+  <form>
+    <h3>Complete Campos dirección:</h3>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Dirección completa">
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ciudad, Departamento">  
+  </form>
   
+</br>
+  
+  <div class="container">
+    <div class="row justify-content-md-left">
+      <div class="col-md-8 order-md-1">
+        <form class="needs-validation" id="sell-info">
+          <h5 class="mb-3">Tipos de envio:</h5>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+              <label class="custom-control-label" for="goldradio">Premium  2 - 5 días (15%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="premiumradio">Express 5 - 8 días (7%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="standardradio">Standard 12 a 15 días (5%)</label>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!--<h3 id="envio" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 25px; background-color: #e7ebec; padding: 7px"></h3>-->
+  <h3 id="subt" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 35px; background-color: #5fffca; padding: 7px"></h3>
+
+  <div id="carrito"></div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
