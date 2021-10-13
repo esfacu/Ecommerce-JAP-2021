@@ -35,7 +35,7 @@ function update(id) {
 
 function showCarrito() {
     let html = "";
-    let costitems = [200,500000];
+    let costitems = [datos.articles[0].unitCost*datos.articles[0].count,(datos.articles[1].unitCost*datos.articles[1].count)*cotizacion];
     for (let i in datos.articles) {
         console.log(datos.articles[i].name);
        let num = i;
