@@ -197,11 +197,11 @@ const filtrar = () => {
             <div class="card h-100 shadow-sm">
                 <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
                     <img src="` + producto.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top">
-                        <h4 class="m-4">`+ producto.name + `</h4>
+                        <h4 class="float-start badge rounded-pill bg-primary">`+ producto.name + `</h4>
                         <div class="card-body">
                             <p class="card-text">` + producto.description + `</p>    
-                            <small class="card-text">USD ` + producto.cost + `</small>
-                            <p class="card-text">UNIDADES VENDIDAS: ` + producto.soldCount + `</p>
+                            <small class="float-start badge rounded-pill bg-success">USD ` + producto.cost + `</small>
+                            <p class="float-end price-hp">UNIDADES VENDIDAS: ` + producto.soldCount + `</p>
                         </div>
                 </a>
             </div>    
@@ -211,7 +211,7 @@ const filtrar = () => {
     }
     if (resultado.innerHTML === '') {
         resultado.innerHTML += `
-        <li>Producto no encontrado...</li>`
+        <li class="float-start badge rounded-pill bg-primary">Producto no encontrado...</li>`
     }
 }
 
