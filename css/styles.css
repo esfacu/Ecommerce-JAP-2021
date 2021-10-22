@@ -338,3 +338,20 @@ background-color: #B0BEC5;
   background-color: #e7ebec ;
 }
 
+.bg-success {
+  font-size: 1rem;
+  background-color: #f7810a !important;
+  color: white;
+}
+
+.bg-primary{
+  font-size: 22px;
+  color: white;
+}
+
+.price-hp {
+  font-size: 1rem;
+  font-weight: 600;
+  color: darkgray;
+  text-align: center;
+}
