@@ -346,7 +346,8 @@ background-color: #B0BEC5;
 
 .bg-primary{
   font-size: 22px;
-  color: white;
+  background-color: white !important;
+  color: black;
 }
 
 .price-hp {
@@ -355,3 +356,4 @@ background-color: #B0BEC5;
   color: darkgray;
   text-align: center;
 }
+

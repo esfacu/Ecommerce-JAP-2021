@@ -80,7 +80,7 @@ function showProductList() {
             <div class="card h-100 shadow-sm">
                 <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top">
-                        <h4 class="float-start badge rounded-pill bg-primary">`+ product.name + `</h4>
+                        <h4 class="m-3">`+ product.name + `</h4>
                         <p class="float-end price-hp">UNIDADES VENDIDAS: ` + product.soldCount + `</p>
                         <div class="card-body"
                             <p class="card-text">` + product.description + `</p>

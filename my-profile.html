@@ -35,7 +35,9 @@
 
 <body>
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a class="nav-link disabled" href="my-profile.html">Bienvenido  </a>      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="nav-link disabled" href="my-profile.html">Bienvenido </a> <button class="navbar-toggler" type="button"
+      data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -47,24 +49,25 @@
           <a class="nav-link" href="categories.html">Categorías</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="products.html">Productos</a>
+          <a class="nav-link" href="products.html">Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="cart.html">Mi carrito</a>
+          <a class="nav-link" href="cart.html">Mi carrito</a>
         </li>
       </ul>
       <div class="navbar-brand active">
-      <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="main"></a>
-        <a class="nav-item nav-link disabled" href="my-profile.html" tabindex="-1" aria-disabled="true"></a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesion</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            id="main"></a>
+          <a class="nav-item nav-link disabled" href="my-profile.html" tabindex="-1" aria-disabled="true"></a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesion</a>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </nav>
   <!--<nav class="site-header sticky-top py-1 bg-dark">
@@ -79,14 +82,54 @@
       <a class="py-2 d-none d-md-inline-block" id='main' href="my-profile.html">Bienvenido: </a>
     </div>
   </nav> -->
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <form class="row g-3">
+    <div class="col-md-4">
+      <label for="name" class="form-label">Nombres</label>
+      <input type="text" class="form" id="name" value="" required>
     </div>
-  </div>
+    <div class="col-md-4">
+      <label for="surrname" class="form-label">Apellidos</label>
+      <input type="text" class="form" id="surrname" value="" required>
+    </div>
+    <div class="col-md-4">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="number" min="0" max="100" class="form-control" id="edad" style="background-color: white;" required>
+    </div>
+    <div class="col-md-6">
+      <label for="tel" class="form-label">Telefono</label>
+      <input type="text" class="form" id="tel" required>
+    </div>
+    <div class="col-md-6">
+      <label for="mail" class="form-label">Email</label>
+      <div class="input-group">
+        <input type="email" class="form" id="mail" aria-describedby="inputGroupPrepend2" required value="">
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-12">
+    </div>
+    <!-- <div class="col-md-3">
+      <label for="validationDefault04" class="form-label">State</label>
+      <select class="form-select" id="validationDefault04" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="validationDefault05" class="form-label">Zip</label>
+      <input type="text" class="form" id="validationDefault05" required>
+    </div>
+    <div class="col-12">
+    </div>-->
+    <div class="col-12">
+      <img src="" alt="" class="img-thumbnail" id="pic" width="200px">
+      <input type="file" id="inputF" onchange="previewFile()">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" id="guardar" onclick="saveProfile();">Guardar</button>
+    </div>
+  </form>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
