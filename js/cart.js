@@ -45,7 +45,7 @@ function showCarrito() {
        <tr scope="row">
         <td scope="col" class="col-2"><img src="${datos.articles[i].src}" class="img-thumbnail"></td>
         <td scope="col">${datos.articles[i].name}</td>
-        <td scope="col"><input type="number" class="form-control" min="0" onchange="update(${num});calcular_subtotal();" value="${datos.articles[i].count}" name="" id="${num}"/>
+        <td scope="col"><input type="number" class="form-control" min="0" onchange="update(${num});calcular_subtotal(); updateTotalCosts();" value="${datos.articles[i].count}" name="" id="${num}"/>
         </td>
         </td>
         <td scope="col"><p name="currency${[i]}"">${datos.articles[i].currency} </p>${datos.articles[i].unitCost}</td>
