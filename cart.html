@@ -205,32 +205,31 @@
                 <label class="custom-control-label" for="transfer">Transferencia</label>
                 <div id="transferContainer" style="display: none;">
                   <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1"
-                            data-toggle="dropdown">
-                            Banco
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item">Brou</a>
-                            <a class="dropdown-item">Santander</a>
-                            <a class="dropdown-item">BBVA</a>
-                          </div>
-                          <label>Número de cuenta</label>
-                          <input class="form" placeholder="xxx-xxxxxxxxxxxx">
-                        </div>
-                  </form>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Bancos </label>
+                      </div>
+                      <select class="custom-select" id="inputGroupSelect01">
+                        <option selected style="display: none;">Elije...</option>
+                        <option value="1">Brou</option>
+                        <option value="2">Santander</option>
+                        <option value="3">BBVA</option>
+                      </select>
+                    </div>
+                    <label>Número de cuenta</label>
+                    <input class="form" placeholder="xxx-xxxxxxxxxxxx">
                 </div>
-              </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
-        </div>
       </div>
+      </form>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+    </div>
+  </div>
+  </div>
   </div>
 
 
