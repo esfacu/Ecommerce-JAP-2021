@@ -6,13 +6,14 @@ let datos = [];
 
 
 
-document.addEventListener("DOMContentLoaded", function (e){
-    getJSONData(CART_INFO_URL).then(function(resultObj){
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             datos = resultObj.data;
             showCarrito();
             calcular_subtotal();
-           // calcular_envio()
+            updateTotalCosts();
+            // calcular_envio()
             //calcular_total();
         }
     })
@@ -24,23 +25,23 @@ function update(id) {
     var x = document.getElementById(id).value;
     multiplicado = x * datos.articles[id].unitCost;
 
-    if(datos.articles[id].currency === "USD"){
+    if (datos.articles[id].currency === "USD") {
         multiplicado *= cotizacion;
     }
     document.getElementById("subtotal" + id).innerHTML = multiplicado;
-    
+
 };
 
 
 
 function showCarrito() {
     let html = "";
-    let costitems = [datos.articles[0].unitCost*datos.articles[0].count,(datos.articles[1].unitCost*datos.articles[1].count)*cotizacion];
+    let costitems = [datos.articles[0].unitCost * datos.articles[0].count, (datos.articles[1].unitCost * datos.articles[1].count) * cotizacion];
     for (let i in datos.articles) {
         console.log(datos.articles[i].name);
-       let num = i;
+        let num = i;
 
-       html = ` 
+        html = ` 
        <tr scope="row">
         <td scope="col" class="col-2"><img src="${datos.articles[i].src}" class="img-thumbnail"></td>
         <td scope="col">${datos.articles[i].name}</td>
@@ -50,11 +51,11 @@ function showCarrito() {
         <td scope="col"><p name="currency${[i]}"">${datos.articles[i].currency} </p>${datos.articles[i].unitCost}</td>
         <td id="subtotal${num}"  name="subtotal" scope="col">${costitems[i]}</td>
         </tr>
-       `       
-       ;
-       
-       document.getElementById("input").innerHTML += html;
-        
+       `
+            ;
+
+        document.getElementById("input").innerHTML += html;
+
     }
 };
 
@@ -70,9 +71,47 @@ function calcular_subtotal() {
     for (let i = 0; i < subtotales.length; i++) {
         suma = suma + Number(subtotales[i].innerHTML);
     }
-    
-    subt.innerHTML = "Subtotal: $ " + suma;
+
+    subt.innerHTML = suma;
 
 }
 
 
+
+function desplegarTarjeta(){
+    document.getElementById("tarContainer").style.display='block';
+    document.getElementById("transferContainer").style.display= 'none';
+};
+
+function desplegarTransfer(){
+    document.getElementById("tarContainer").style.display='none';
+    document.getElementById("transferContainer").style.display= 'block';
+};
+
+
+comissionPercentage = 0.15;
+    document.getElementById("premium").addEventListener("change", function(){
+        comissionPercentage = 0.15;
+        updateTotalCosts();
+    });
+    
+    document.getElementById("express").addEventListener("change", function(){
+        comissionPercentage = 0.07;
+        updateTotalCosts();
+    });
+
+    document.getElementById("standard").addEventListener("change", function(){
+        comissionPercentage = 0.05;
+        updateTotalCosts();
+    });
+
+
+function updateTotalCosts(){
+    let subtotal = document.getElementById("subt").innerHTML;
+    console.log(subtotal);
+    let costoEnvio = subtotal * comissionPercentage;
+    document.getElementById("envio").innerHTML =  costoEnvio;
+   
+    let total = parseInt(subtotal) + parseInt(costoEnvio);
+    document.getElementById("total").innerHTML =`$ ` +  total;
+}
