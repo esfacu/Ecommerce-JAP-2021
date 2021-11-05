@@ -115,3 +115,73 @@ function updateTotalCosts(){
     let total = parseInt(subtotal) + parseInt(costoEnvio);
     document.getElementById("total").innerHTML =`$ ` +  total;
 }
+
+
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+
+
+function validarCompra() {
+    if (document.getElementById("tarjeta").checked) {
+        let tarjeta = document.getElementById("nroTarjeta").value;
+        let titular = document.getElementById("titular").value;
+        let cvv = document.getElementById("cvv").value;
+        let caducidad = document.getElementById("caducidad").value;
+
+        if ((tarjeta != "") && (titular != "") && (caducidad != "") && (cvv != "")){
+            return true
+        } else {
+            alert("Completar campos de tarjeta");
+            return false;
+        }
+    } else if(document.getElementById("transferencia").checked) {
+         let nrocuenta = document.getElementById("nroCuenta").value;
+         if (nrocuenta != ""){
+                return true
+         } else {
+            alert("Completar campos de transferencia");
+            return false;   
+         }
+    } else if (!(document.getElementById("tarjeta").checked || document.getElementById("transferencia").checked)){
+        alert("Seleccionar forma de pago");
+        return false;
+    }    
+}
+
+function habilitarCompra(){
+     if (document.getElementById("tarjeta").checked) {
+        let tarjeta = document.getElementById("nroTarjeta").value;
+        let titular = document.getElementById("titular").value;
+        let cvv = document.getElementById("cvv").value;
+        let caducidad = document.getElementById("caducidad").value;
+
+        if ((tarjeta != "") && (titular != "") && (caducidad != "") && (cvv != "")){
+            /*jquery*/
+           $("#exampleModal").modal('hide');
+        }
+    } else if(document.getElementById("transferencia").checked) {
+         let nrocuenta = document.getElementById("nroCuenta").value;
+         if (nrocuenta != ""){
+            /*jquery*/
+           $("#exampleModal").modal('hide');
+         }
+    }
+    return false;
+}

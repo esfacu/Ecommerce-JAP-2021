@@ -91,47 +91,65 @@
   <input type="button" id="cambiarPeso" onclick="" class="btn btn-dark" value="Convertir a Dolares">-->
   </br>
 
-  <div class="container">
-    <form class="needs-validation">
+  <form class="row g-3 needs-validation" required>
+
+    <div class="container">
+
       <h3>Complete Campos dirección:</h3>
-      <input type="text" class="form" id="formGroupExampleInput" placeholder="Dirección completa">
-      <input type="text" class="form" id="formGroupExampleInput" placeholder="País, Localidad">
-    </form>
-
-    </br>
+      <input type="text" class="form" id="formGroupExampleInput" placeholder="Dirección completa" required="required">
+      <input type="text" class="form" id="formGroupExampleInput" placeholder="País, Localidad" required="required">
 
 
-    <div class="">
-      <div class="row justify-content-md-righ">
-        <div class="col-md-8 order-md-1">
-          <form class="needs-validation" id="sell-info" required>
+
+      </br>
+
+
+      <div class="">
+        <div class="row justify-content-md-righ">
+          <div class="col-md-8 order-md-1">
+
             <h5 class="mb-3">Tipos de envio:</h5>
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="premium" name="publicationType" type="radio" class="custom-control-input" required=""
-                  checked>
+                <input id="premium" name="publicationType" type="radio" class="custom-control-input" required checked>
                 <label class="custom-control-label" for="premium">Premium 2 - 5 días (15%)</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="express" name="publicationType" type="radio" class="custom-control-input" required="">
+                <input id="express" name="publicationType" type="radio" class="custom-control-input">
                 <label class="custom-control-label" for="express">Express 5 - 8 días (7%)</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="standard" name="publicationType" type="radio" class="custom-control-input" required="">
+                <input id="standard" name="publicationType" type="radio" class="custom-control-input">
                 <label class="custom-control-label" for="standard">Standard 12 a 15 días (5%)</label>
               </div>
-          </form>
+
+            </div>
+          </div>
         </div>
+
+        
+        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Seleccionar forma de pago
+        </button> -->
+        <!-- Button trigger modal -->
+        <!--FORMA DE PAGO-->
+        <div class="col-md-6 pl-5" style="color:black">
+          <hr>
+          <div class="row">
+            <!--     <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>-->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Seleccionar Forma de Pago
+            </button>
+          </div>
+
+          <!--<span id="formaPago">No seleccionado &nbsp; &nbsp; <a href="#">Seleccionar</a></span>-->
+        </div>
+
       </div>
     </div>
-
-
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-      Seleccionar forma de pago
-    </button>
-
-
+    <br>
+    <div class="container">
     <table class="table">
       <tbody>
         <tr>
@@ -148,90 +166,203 @@
         </tr>
       </tbody>
     </table>
-
-
-    <!--<h3 id="envio" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 25px; background-color: #e7ebec; padding: 7px"></h3>-->
-
-
+    <div class="form-group text-center">
+      <button type="submit" class="btn  btn-primary">Finalizar compra</button>
+    </div>
   </div>
-
+  </form>
+  </main>
 
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Seleccione forma de pago:</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Seleccionar forma de pago</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form class="needs-validation" id="sell-info">
+          <form class="needs-validation" novalidate onsubmit="return habilitarCompra();">
             <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="tarjeta" name="publicationType" onclick="desplegarTarjeta();" type="radio"
-                  class="custom-control-input" required="">
-                <label class="custom-control-label" for="tarjeta">Tarjeta de Credito</label>
+              <div id="tarConteiner" class="custom-control custom-radio form-check">
+                <input id="tarjeta" onclick="desplegarTarjeta();" name="publicationType" type="radio"
+                  class="custom-control-input" required>
+                <label class="custom-control-label" for="tarjeta">Tarjeta de crédito</label>
+                <br>
                 <div id="tarContainer" style="display: none;">
-                  <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label>Número de Tarjeta</label>
-                        <input class="form" placeholder="xxxx-xxxx-xxxx-xxxx">
-                      </div>
-                      <div class="form-group col-md-2">
-                        <label>Caducidad</label>
-                        <input class="form" placeholder="MM/AA">
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Número de Tarjeta</label>
+                      <input id="nroTarjeta" class="form" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                      <div class="invalid-feedback">
+                        Favor ingrese número tarjeta
                       </div>
                     </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label>Titular de la Tarjeta</label>
-                        <input type="text" class="form" placeholder="Nombre Apellido">
-                      </div>
-                      <div class="form-group col-md-2">
-                        <label>CVV</label>
-                        <input class="form" placeholder="XXX">
-                      </div>
+                    <div class="form-group col-md-2">
+                      <label>Caducidad</label>
+                      <input id="caducidad" class="form" placeholder="MM/AA" required>
                     </div>
-                  </form>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Titular de la Tarjeta</label>
+                      <input id="titular" type="text" class="form" placeholder="Nombre Apellido" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label>CVV</label>
+                      <input id="cvv" class="form" placeholder="XXX" required>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="custom-control custom-radio">
-                <input id="transfer" name="publicationType" onclick="desplegarTransfer();" type="radio"
-                  class="custom-control-input" required="">
-                <label class="custom-control-label" for="transfer">Transferencia</label>
+              <br>
+              <div id="transfConteiner" class="custom-control custom-radio form-check">
+                <input id="transferencia" onclick="desplegarTransfer();" name="publicationType" type="radio"
+                  class="custom-control-input">
+                <label class="custom-control-label" for="transferencia">Transferencia bancaria</label>
+                <br>
                 <div id="transferContainer" style="display: none;">
-                  <form>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Bancos </label>
-                      </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
                       <select class="custom-select" id="inputGroupSelect01">
                         <option selected style="display: none;">Elije...</option>
                         <option value="1">Brou</option>
                         <option value="2">Santander</option>
                         <option value="3">BBVA</option>
                       </select>
+                      <label>Número de cuenta bancaria</label>
+                      <input id="nroCuenta" class="form" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                      <div class="invalid-feedback">
+                        Favor ingrese número cuenta
+                      </div>
                     </div>
-                    <label>Número de cuenta</label>
-                    <input class="form" placeholder="xxx-xxxxxxxxxxxx">
+                  </div>
                 </div>
+              </div>
+
+
+
+              <button type="submit" class="btn btn-primary" onclick="validarCompra()">Confirmar</button>
+            </div>
           </form>
         </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
       </div>
-      </form>
+    </div>
+  </div>
+
+
+
+
+  
+
+
+  <!--<h3 id="envio" class="list-group-item list-group-item-action list-group-item-dark" style="width: 21rem; right: -1200px; font-size: 25px; background-color: #e7ebec; padding: 7px"></h3>-->
+
+
+  </div>
+
+
+  <!-- Modal -->
+  <!--<form class="needs-validation">
+    <div>
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Seleccione forma de pago:</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                      <input id="tarjeta" name="publicationType" onclick="desplegarTarjeta();" type="radio"
+                        class="custom-control-input" required="">
+                        <label class="custom-control-label" for="tarjeta">Tarjeta de Credito</label>
+                    </div>
+                    <div id="tarContainer" style="display: none;">
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>Número de Tarjeta</label>
+                          <input class="form" placeholder="xxxx-xxxx-xxxx-xxxx">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label>Caducidad</label>
+                          <input class="form" placeholder="MM/AA">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>Titular de la Tarjeta</label>
+                          <input type="text" class="form" placeholder="Nombre Apellido">
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label>CVV</label>
+                          <input class="form" placeholder="XXX">
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="transfer" name="publicationType" onclick="desplegarTransfer();" type="radio"
+                      class="custom-control-input" required="">
+                    <label class="custom-control-label" for="transfer">Transferencia</label>
+                    <div id="transferContainer" style="display: none;">
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Bancos </label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected style="display: none;">Elije...</option>
+                          <option value="1">Brou</option>
+                          <option value="2">Santander</option>
+                          <option value="3">BBVA</option>
+                        </select>
+                      </div>
+                      <label>Número de cuenta</label>
+                      <input class="form" placeholder="xxx-xxxxxxxxxxxx">
+                    </div>
+                  
+    </div>
+    </div>
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
     </div>
-  </div>
-  </div>
-  </div>
+    </div>
+    </div>
+    </div>-->
 
+  
+  </form>
+
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
 
   <div id="carrito"></div>
   <div id="spinner-wrapper">
