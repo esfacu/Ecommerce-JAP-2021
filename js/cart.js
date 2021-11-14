@@ -1,7 +1,7 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 let datos = [];
+let products = datos.articles;
+
 
 
 
@@ -47,7 +47,7 @@ function showCarrito() {
         <td scope="col">${datos.articles[i].name}</td>
         <td scope="col"><input type="number" class="form-control" min="0" onchange="update(${num});calcular_subtotal(); updateTotalCosts();" value="${datos.articles[i].count}" name="" id="${num}"/>
         </td>
-        </td>
+        <td class="allign"> <button type="button" class="btn btn-secondary" onclick="borrarElemento(${num})"> Quitar </button> </td>
         <td scope="col"><p name="currency${[i]}"">${datos.articles[i].currency} </p>${datos.articles[i].unitCost}</td>
         <td id="subtotal${num}"  name="subtotal" scope="col">${costitems[i]}</td>
         </tr>
@@ -61,6 +61,7 @@ function showCarrito() {
 
 const cotizacion = 40;
 
+//calcula subt mediante for array subtotales
 
 function calcular_subtotal() {
     let subtotales = document.getElementsByName("subtotal");
@@ -76,6 +77,7 @@ function calcular_subtotal() {
 
 }
 
+//desplegan opciones de tarjeta  o transfer ocultando la otra segun seleccion
 
 
 function desplegarTarjeta(){
@@ -183,5 +185,19 @@ function habilitarCompra(){
            $("#exampleModal").modal('hide');
          }
     }
-    return false;
+    return alert("Pago aplicado");
+}
+
+
+
+
+
+function borrarElemento(num){
+    let i = 0;
+    for(let p of products){
+        p.count = document.getElementById(i).value; //guardar cantidades 
+        i++;
+    }
+    products.splice(num, 1);//quitar elemento del array de productos
+    
 }
