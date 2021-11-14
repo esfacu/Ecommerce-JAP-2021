@@ -131,106 +131,114 @@
         <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Seleccionar forma de pago
         </button> -->
-        <!-- Button trigger modal -->
-        <!--FORMA DE PAGO-->
-        <form onsubmit="return validarCompra();">
-          <div class="container card card-body" style="color:black">
-            <div class="row">
-              <div class="col-md-6 pl-5">
-                <h3>Tipo de envío</h3>
-                <hr>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="premium" value="option" checked required />
-                  <label class="form-check-label" for="premium">
-                    Premium 2 a 5 dias (15%)
-                  </label>
-                </div>
-                <br>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="express" value="option" />
-                  <label class="form-check-label" for="express">
-                    Express 5 a 8 dias (7%)
-                  </label>
-                </div>
-                <br>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="standard" value="option" />
-                  <label class="form-check-label" for="standard">
-                    Standard 12 a 15 dias (5%)
-                  </label>
-                </div>
-                <br>
-              </div>
-    
-    
-              <!--DIRECCION DE ENVIO-->
-              <div class="col-md-6 pl-5" style="color:black">
-                <h3>Dirección de envío</h3>
-                <hr>
-    
-                <div class="form-group">
-                  <label for="calle">Calle</label>
-                  <input required type="text" class="form" id="calle" placeholder="Insertar calle...">
-                </div>
-    
-                <div class="form-group">
-                  <label for="numero">Número</label>
-                  <input required type="number" class="form" id="numero" min="0"
-                    placeholder="Insertar número de puerta...">
-                </div>
-    
-                <div class="form-group">
-                  <label for="esquina">Esquina</label>
-                  <input required type="text" class="form" id="esquina" placeholder="Insertar esquina...">
-                </div>
-    
-              </div>
-    
-            </div>
-          </div>
-
-
-
-
-        <div class="col-md-6 pl-5" style="color:black">
+  <!-- Button trigger modal -->
+  <!--FORMA DE PAGO-->
+  <form onsubmit="return validarCompra();">
+    <div class="container card card-body" style="color:black">
+      <div class="row">
+        <div class="col-md-6 pl-5">
+          <h3>Tipo de envío</h3>
           <hr>
-          <div class="row">
-            <!--     <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>-->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Seleccionar Forma de Pago
-            </button>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="premium" value="option" checked
+              required />
+            <label class="form-check-label" for="premium">
+              Premium 2 a 5 dias (15%)
+            </label>
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="express" value="option" />
+            <label class="form-check-label" for="express">
+              Express 5 a 8 dias (7%)
+            </label>
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="standard" value="option" />
+            <label class="form-check-label" for="standard">
+              Standard 12 a 15 dias (5%)
+            </label>
+          </div>
+          <br>
+        </div>
+
+
+        <!--DIRECCION DE ENVIO-->
+        <div class="col-md-6 pl-5" style="color:black">
+          <h3>Dirección de envío</h3>
+          <hr>
+
+          <div class="form-group">
+            <label for="calle">Calle</label>
+            <input required type="text" class="form" id="calle" placeholder="Insertar calle...">
           </div>
 
-          <!--<span id="formaPago">No seleccionado &nbsp; &nbsp; <a href="#">Seleccionar</a></span>-->
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input required type="number" class="form" id="numero" min="0" placeholder="Insertar número de puerta...">
+          </div>
+
+          <div class="form-group">
+            <label for="esquina">Esquina</label>
+            <input required type="text" class="form" id="esquina" placeholder="Insertar esquina...">
+          </div>
+
         </div>
 
       </div>
     </div>
+
+
+
+
+
+
+    </div>
+    </div>
     <br>
     <div class="container">
-    <table class="table">
-      <tbody>
-        <tr>
-          <th scope="row">Subtotal: UYU</th>
-          <td id="subt">x</td>
-        </tr>
-        <tr>
-          <th scope="row">Envio: UYU</th>
-          <td id="envio"></td>
-        </tr>
-        <tr class="table-success">
-          <th scope="row" class="bg-primary">Total: UYU</th>
-          <td scope="row" id="total" class="bg-active" style="font-weight: bold; font-size: larger;"></td>
-        </tr>
-      </tbody>
+      <table class="table">
+        <tbody>
+          <tr>
+            <div class="col-md-6 pl-5" style="color:black">
+              <th>
+
+                <div class="row">
+                  <!--     <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>-->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Seleccionar Forma de Pago
+                  </button>
+                </div>
+              </th>
+              <td></td>
+          </tr>
+          <br>
+
+          <!--<span id="formaPago">No seleccionado &nbsp; &nbsp; <a href="#">Seleccionar</a></span>-->
+    </div>
+
+    <tr>
+      <th scope="row">Subtotal: UYU</th>
+      <td id="subt">x</td>
+    </tr>
+    <tr>
+      <th scope="row">Envio: UYU</th>
+      <td id="envio"></td>
+    </tr>
+    <tr class="table-success">
+      <th scope="row" class="bg-primary">Total: UYU</th>
+      <td scope="row" id="total" class="bg-active" style="font-weight: bold; font-size: larger;"></td>
+    </tr>
+    </tbody>
     </table>
     <div class="form-group text-center">
       <input type="submit" value="Finalizar Compra!" class="btn  btn-primary">
     </div>
-  </div>
+    </div>
   </form>
- 
+
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -311,7 +319,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          
+
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -326,7 +334,7 @@
   </div>
 
 
-  
+
 
   <!-- Modal -->
   <!--<form class="needs-validation">
@@ -407,7 +415,7 @@
     </div>
     </div>-->
 
-  
+
   </form>
 
 

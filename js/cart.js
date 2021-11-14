@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 });
 
+function getCarrito(CART_INFO_URL) {
+    return fetch(CART_INFO_URL)
+        .then(resultObj => {
+            return resultObj.json();
+        })
+}
+
 function update(id) {
     console.log(id);
     console.log("subtotal" + id);
@@ -190,14 +197,12 @@ function habilitarCompra(){
 
 
 
-
-
 function borrarElemento(num){
     let i = 0;
-    for(let p of products){
+    for(let p of datos){
         p.count = document.getElementById(i).value; //guardar cantidades 
         i++;
     }
-    products.splice(num, 1);//quitar elemento del array de productos
+    datos.splice(num, 1);//quitar elemento del array de productos
     
 }
