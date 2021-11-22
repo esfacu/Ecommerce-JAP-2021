@@ -192,7 +192,6 @@ function habilitarCompra(){
            $("#exampleModal").modal('hide');
          }
     }
-    return alert("Pago aplicado");
 }
 
 
