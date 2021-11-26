@@ -155,7 +155,8 @@ function validarCompra() {
         let caducidad = document.getElementById("caducidad").value;
 
         if ((tarjeta != "") && (titular != "") && (caducidad != "") && (cvv != "")){
-            return true
+            alert("Compra realizada correctamente!");
+            return true;
         } else {
             alert("Completar campos de tarjeta");
             return false;
@@ -163,7 +164,8 @@ function validarCompra() {
     } else if(document.getElementById("transferencia").checked) {
          let nrocuenta = document.getElementById("nroCuenta").value;
          if (nrocuenta != ""){
-                return true
+            alert("Compra realizada correctamente!");
+            return true;
          } else {
             alert("Completar campos de transferencia");
             return false;   
